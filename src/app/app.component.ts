@@ -11,7 +11,7 @@ import { CookieService } from 'ngx-cookie-service';
 })
 export class AppComponent {
 
-  testdata = "hello from parent"
+  testdata = "hello frosdfsdfsfsffsdm parent"
   
   constructor(){     
   }
