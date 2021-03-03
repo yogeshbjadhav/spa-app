@@ -1,0 +1,43 @@
+<button (click)="send()"></button>
+
+<form #myform="ngForm" (ngSubmit)="save(myform)" autocomplete="off">
+    <input type="hidden" name="id" ngModel #id [(ngModel)]="editObject.id"> 
+    <input type="text" placeholder="Enter employee name" name="ename" ngModel #ename [(ngModel)]="editObject.ename"><br>
+    <input type="text" placeholder="Enter employee adress" name="eaddress" ngModel #eaddress [(ngModel)]="editObject.eaddress"><br>
+    <input type="text" placeholder="Enter employee city" name="ecity" ngModel #ecity [(ngModel)]="editObject.ecity"><br>
+    <input type="submit" value="Save" *ngIf="saveflag">
+    <input type="submit" value="update" *ngIf="updateflag">
+    <input type="button" value="Cancel" (click)="cancel()">
+</form>
+
+<table border="2">
+    <tr>
+        <th>id</th> <th>e name</th> <th>address</th> <th>city</th> <th>Actions</th>
+    </tr>
+
+    <tr *ngFor="let i of mydata">
+        <td>{{ i.id }}</td> <td>{{ i.ename }}</td> <td>{{ i.eaddress }}</td> <td>{{ i.ecity }}</td>
+        <td><button (click)="showEditData(i)">Edit</button>  <button (click)="delete(i.id)">Delete</button></td>
+    </tr>
+</table>
+
+
+<button [swal]="['Oops!', 'This is not implemented yet :/', 'warning']">
+    Do it!
+  </button>
+
+
+  <button
+  [swal]="{ title: 'Save file as...', input: 'text', showDenyButton: true, denyButtonText: 'Don\'t save', showCancelButton: true }"
+  (confirm)="saveFile($event)"
+  (deny)="handleDenial()"
+  (dismiss)="handleDismiss($event)">
+
+  Save
+</button>
+
+
+<button (click)="simpleAlert()">Simple Alert</button>
+<button (click)="alertWithSuccess()">Alert with Success</button>
+<button (click)="confirmBox()">Confirm Box</button>
+
